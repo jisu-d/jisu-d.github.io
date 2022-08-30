@@ -1,0 +1,1 @@
+let o={schoolname:"\uC0C8\uC194\uACE0\uB4F1\uD559\uAD50",year:1,class:1,login:1};localStorage.getItem("obj")||localStorage.setItem("obj",JSON.stringify(o));const t=JSON.parse(localStorage.getItem("obj")),e=a=>{localStorage.setItem("obj",JSON.stringify(a))};let l="https://weschedule.kro.kr";export{e as a,t as l,l as p,o as s};

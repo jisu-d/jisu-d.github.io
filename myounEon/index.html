@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>weschedule</title>
+    
+  <script type="module" crossorigin src="/assets/page2.fb73d502.js"></script>
+  <link rel="modulepreload" href="/assets/jsx-runtime.4063c5da.js">
+  <link rel="stylesheet" href="/assets/page2.54f2f79a.css">
+</head>
+
+<body>
+    <div id="app"></div>
+    <div class="div-container"></div>
+    <button class='button'></button>
+    <script>
+        const btn = document.querySelector('button')
+        const div = document.querySelector('.div-container');
+        const body = document.querySelector('body');
+        btn.classList.toggle('paused')
+        let tf = true
+        let i = 0
+
+        const get = async () => {
+            div.innerHTML = ''
+            const d = await (await fetch('https://api.qwer.pw/request/helpful_text?apikey=guest')).json()
+            const div1 = document.createElement('div')
+            const setI = setInterval(() => {
+                i += 1 / 100
+                div1.style.opacity = i
+                if (i >= 1) {
+                    clearInterval(setI)
+                    i = 0
+                }
+            }, (2 * 1000) / 100)
+
+            setTimeout(() => {
+                div1.innerHTML = d[1].respond
+                div1.style.paddingTop = '15px'
+                div1.style.fontSize = '3vh'
+                div1.style.fontFamily = 'Jua'
+                div.appendChild(div1)
+            }, (2 * 1000) / 100)
+        }
+
+        const setI2 = setInterval(() => {
+            if (tf) {
+                get()
+            }
+        }, 4 * 1000)
+
+        get()
+        body.addEventListener('click', () => {
+            if (tf) {
+                tf = false
+                btn.classList.toggle('paused')
+            } else {
+                btn.classList.toggle('paused')
+                tf = true
+            }
+        })
+    </script>
+</body>
+
+</html>
