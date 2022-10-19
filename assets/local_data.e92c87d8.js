@@ -1,0 +1,1 @@
+let o={schoolname:"\uC0C8\uC194\uACE0\uB4F1\uD559\uAD50",year:1,class:1,login:1};localStorage.getItem("obj")||localStorage.setItem("obj",JSON.stringify(o));JSON.parse(localStorage.getItem("obj"));const t=a=>{localStorage.setItem("obj",JSON.stringify(a))};export{t as a,o as s};
